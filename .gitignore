@@ -1,0 +1,9 @@
+# Per-machine state — never committed (see README: Environment strategy).
+machine.env
+**/machine.env
+manifest.tsv
+**/manifest.tsv
+**/files/
+*.log
+last-boot
+__pycache__/

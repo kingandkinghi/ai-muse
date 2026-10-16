@@ -1,0 +1,27 @@
+# manifest — what ensure.sh converges on one machine.
+# Copy to "manifest.tsv" beside ensure.sh and edit for your machine.
+# Never commit a real manifest.
+#
+# One entry per line, whitespace-separated. Blank lines and lines starting
+# with # are ignored.
+#
+#   dir    <path> <mode>                ensure a directory exists, with mode
+#   file   <master> <target> <mode>     install master (from files/) at target
+#   gitkey <key> <value>                git config --system <key> = <value>
+#   pip    <package-spec> [<module>]    ensure the package is importable;
+#                                       module defaults to a guess from the
+#                                       spec (name up to the first version
+#                                       character, '-' becomes '_')
+#
+# All values below are placeholders. Modes are octal as install/chmod take
+# them. Package specs are single tokens (no spaces: pkg>=1.0, not pkg >= 1.0).
+
+dir    /etc/ssh/ca 0755
+file   host_ca.pub /etc/ssh/ca/host_ca.pub 0644
+file   user_ca.pub /etc/ssh/ca/user_ca.pub 0644
+file   known_hosts /etc/ssh/known_hosts 0644
+file   allowed_signers /etc/ssh/allowed_signers 0644
+dir    /root/.ssh 0700
+file   ssh_config /root/.ssh/config 0600
+gitkey gpg.ssh.allowedSignersFile /etc/ssh/allowed_signers
+pip    some_package==1.2.3 some_package
