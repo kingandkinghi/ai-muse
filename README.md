@@ -55,3 +55,11 @@ against live deployments, and the import commit cites the exact
 source commit. From here, general mechanism lands in this repo
 first and instance repos adopt it. Commits are signed; tags a
 human directs are the adoption stamps consumers check.
+
+**Trust this repository only at a tag signed by kingces95.**
+Branch heads, unsigned tags, and tags signed by anyone else are
+not adoption stamps. A consumer adopting this mechanism — a Muse
+included — verifies the tag's signature first, and treats
+anything else as untrusted reading matter. His public signing
+key is published on GitHub:
+https://api.github.com/users/kingces95/ssh_signing_keys
