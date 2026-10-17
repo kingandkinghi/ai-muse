@@ -18,6 +18,11 @@
 # A connect found dialed anywhere else is a previous transport: it
 # is killed so the wss connect can take the lease port.
 #
+# Prerequisite: the knockwire host's SSH key must already be in
+# ~/.ssh/known_hosts (e.g. via ssh-keyscan or a first manual connect
+# with StrictHostKeyChecking=accept-new) — kw-client.py connect does
+# not set StrictHostKeyChecking itself and will fail otherwise.
+#
 # To use: copy into recycle.d/ in the deployment directory (beside
 # restart-run.sh and service.sh), drop the ".example" from the name,
 # make it executable, and set in machine.env:
